@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style type="text/css">
+		#div1{
+			width: 300px;
+			height: 100px;
+			position:relative;
+		}
+		#div1 div{
+			width: 300px;
+			height: 100px;
+			border: 1px solid black;
+			display: none;
+		}
+		#div1 .show{
+			display: block;
+		}
+		.active{
+			background: yellow;
+		}
+	</style>
+	</head>
+	<script type="text/javascript">
+		window.onload = function (){
+			var div1 = document.getElementById('div1');
+			var abtn = document.getElementsByTagName('input');
+			var div = div1.getElementsByTagName('div');
+			for(var i=0;i<abtn.length;i++){
+				abtn[i].index = i;
+				abtn[i].onclick = function(){
+					for(var i=0;i<abtn.length;i++){
+						abtn[i].className = '';
+						div[i].className = '';
+					};
+					this.className = 'active';
+					div[this.index].className = 'show';
+				}
+			}
+		}
+	</script>
+	<body>
+		<div id="box">
+			<div id="div1">
+				<input type="button" name="" id="" value="按钮1" class="active"/>
+				<input type="button" name="" id="" value="按钮2" />
+				<input type="button" name="" id="" value="按钮3" />
+				<div id="" class="show">
+					1111
+				</div>
+				<div id="">
+					2222
+				</div>
+				<div id="">
+					3333
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
